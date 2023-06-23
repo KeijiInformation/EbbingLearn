@@ -1,0 +1,4 @@
+front: React
+    style: scss
+back: firebase
+DB: firestore

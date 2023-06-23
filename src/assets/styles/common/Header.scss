@@ -1,0 +1,149 @@
+@charset 'utf-8';
+@import './variables';
+
+.header {
+    z-index: 500;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 48px;
+    background-color: $blue-level3;
+
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1440px;
+        padding: 0 20px;
+        height: 100%;
+        @include mobile {
+            padding: 0 12px;
+        }
+    }
+
+    &__app-info {
+        display: flex;
+        align-items: center;
+        gap: 0 32px;
+
+        &--logo {
+            width: 48px;
+            height: 48px;
+        }
+
+        &--app-title {
+            font-size: 2.0rem;
+            font-weight: bold;
+        }
+        @include mobile {
+            gap: 0 8px;
+            &--logo {
+                width: 32px;
+                height: 32px;
+            }
+
+            &--app-title {
+                font-size: 1.6rem;
+            }
+        }
+    }
+
+    &__link-list {
+        display: flex;
+        gap: 16px;
+        width: 190px;
+
+        li {
+            width: 40px;
+            height: 40px;
+            padding: 8px;
+            border: 2px solid $blue-level5;
+            border-radius: 5px;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: 32px 32px;
+            transition: all .2s ease-in-out;
+            &:hover {
+                cursor: pointer;
+                background-size: 40px 40px;
+            }
+        }
+        &__link-to-confirm-btn {
+            background-image: url("../../images/common/confirmPageIcon.png");
+        }
+        &__link-to-do-btn {
+            background-image: url("../../images/common/doPageIcon.png");
+        }
+        &__link-to-register-btn {
+            background-image: url("../../images/common/registerPageIcon.png");
+        }
+
+        @include mobile {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            justify-content: center;
+            gap: 8px;
+            li {
+                width: 32px;
+                height: 32px;
+                background-size: 24px 24px;
+                &:hover {
+                    background-size: 28px 28px;
+                }
+            }
+        }
+    }
+
+    &__hovering-content {
+        width: 136px;
+        &--text {
+            background-color: $base-card-color;
+            padding: 8px 0;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-left:  2px solid $blue-level4;
+            border-right: 2px solid $blue-level4;
+            transition: all .1s ease-in-out;
+            clip-path: inset(0 50% 0 50%);
+        }
+
+        @include mobile {
+            display: none;
+        }
+    }
+
+    &__account-info {
+        display: flex;
+        align-items: center;
+        gap: 0 32px;
+
+        &--account-name {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        &--account-image {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background-color: black;
+            overflow: hidden;
+        }
+
+        @include mobile {
+            gap: 0 8px;
+            &--account-name {
+                font-size: 1.6rem;
+            }
+            &--account-image {
+                width: 32px;
+                height: 32px;
+            }
+        }
+    }
+}

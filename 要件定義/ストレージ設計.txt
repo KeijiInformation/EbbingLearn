@@ -1,0 +1,9 @@
+/images
+    -noImage
+
+    /uid
+        /final1
+            -thumbnail
+            -middle1
+            -middle2
+            -middle3

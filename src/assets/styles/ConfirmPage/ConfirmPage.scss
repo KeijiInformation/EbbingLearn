@@ -1,0 +1,681 @@
+@charset 'utf-8';
+@import '../common/variables.scss';
+
+.confirm-page__page-content-container {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.confirm-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__anounce {
+        font-size: 2rem;
+        color: white;
+        font-weight: bold;
+        margin-top: 40px;
+        margin-bottom: 64px;
+    }
+
+    &__goals-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 35px;
+        position: relative;
+        width: 100%;
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////
+// final goals list
+//////////////////////////////////////////////////////////////////////
+        &__final-goal {
+            background-color: $base-card-color;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            // height: 210px;
+            &:hover {
+                cursor: pointer;
+                background-color: $base-card-shadow;
+            }
+            &--base-info {
+                display: flex;
+                align-items: center;
+                padding: 27px;
+                @include mobile {
+                    padding: 18px;
+                }
+                .thumbnail-view {
+                    width: 100px;
+                    height: 100px;
+                    @include mobile {
+                        width: 80px;
+                        height: 80px;
+                    }
+                }
+                &--outline {
+                    display: flex;
+                    margin-left: 64px;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    @include mobile {
+                        margin-left: 32px;
+                    }
+                    &--title {
+                        font-size: 1.6rem;
+                        margin-bottom: 24px;
+                        font-weight: bold;
+                    }
+                    &--progress-gauge {
+                        margin-bottom: 12px;
+                        .progress-gauge-wrapper {
+                            width: 200px;
+                        }
+                    }
+                    &--duration {
+                        text-align: center;
+                        display: flex;
+                        gap: 13px;
+                        font-size: 1.6rem;
+                    }
+                }
+            }
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////
+// final goals list animation
+//////////////////////////////////////////////////////////////////////
+            &.enter {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            &.enter-active {
+                transition: all .3s .3s ease-in-out;
+                transform: translateX(0);
+                opacity: 1;
+            }
+            &.exit {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            &.exit-active {
+                transition: all .3s ease-in-out;
+                transform: translateX(-50px);
+                opacity: 0;
+            }
+        }
+        &:has(.exit), &:has(.enter) {
+            position: absolute;
+        }
+    }
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////
+// final goal detail
+//////////////////////////////////////////////////////////////////////
+    &__goal-detail-wrapper {
+        width: 100%;
+        background-color: $base-card-color;
+        padding: 48px 32px;
+        position: relative;
+
+        .back-btn-wrapper {
+            position: absolute;
+            top: -42px;
+            left: -28px;
+            transition: all .1s ease-in-out;
+            width: 40px;
+            height: 40px;
+            &:hover {
+                cursor: pointer;
+                scale: 1.2;
+            }
+            @include mobile {
+                top: -42px;
+            }
+        }
+        .menu-wrapper {
+            transform: translate(25px, -42px);
+            @include mobile {
+                transform: translate(26px, -42px);
+            }
+        }
+        .final-goal-detail {
+            font-size: 1.4rem;
+            position: relative;
+            &__outline {
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                .thumbnail-view {
+                    width: 120px;
+                    height: 120px;
+                }
+                &--info {
+                    display: flex;
+                    flex-direction: column;
+                    height: 100px;
+                    > div {
+                        display: grid;
+                        grid-template-columns: 1fr 5fr;
+                        grid-template-rows: 1fr 1fr 1fr;
+                        // row-gap: 8px;
+                        column-gap: 8px;
+                        .label {
+                            display: flex;
+                            font-size: 1.8rem;
+                            font-family: 'Alkatra', cursive;
+                        }
+                        // title
+                        .value.title {
+
+                        }
+                        // duration
+                        .value.duration {
+                            display: flex;
+                            gap: 12px;
+                            .duration-start, .duration-end {
+                                display: flex;
+                            }
+                            .year, .month, .week {
+                                color: $blue-level3;
+                            }
+                        }
+                        // progress
+                        .value.progress {
+
+                        }
+                    }
+                    // description
+                    .description {
+                        background-color: white;
+                        border: 2px solid $base-font-color;
+                        // border-radius: 10px;
+                        padding: 8px;
+                        width: 100%;
+                        font-size: 1.2rem;
+                    }
+                }
+                @include mobile {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    &--info {
+                        height: auto;
+                        div {
+                            display: block;
+                            .label {
+                                display: none;
+                            }
+                            .value {
+                                text-align: center;
+                                margin-top: 8px;
+                                &.title {
+                                    font-size: 2rem;
+                                    font-weight: bold;
+                                }
+                                &.duration {
+                                    justify-content: center;
+                                }
+                            }
+                        }
+                        .description {
+                            margin-top: 16px;
+                            height: 80px;
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+        // middle goal
+        .middle-goal-wrapper {
+            margin-top: 80px;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            &__anounce {
+                margin-top: 32px;
+                position: relative;
+                font-size: 1.8rem;
+                font-weight: bold;
+                text-align: center;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: 100%;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background-color: $base-font-color;
+                    width: 20%;
+                    height: 2px;
+                    border-radius: 3px;
+                }
+            }
+            &__middle-goals-list-container {
+                position: relative;
+            }
+            &__middle-goals-list {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 32px;
+                &--middle-goal {
+                    font-size: 1.4rem;
+                    display: flex;
+                    flex-direction: column;
+                    padding: 16px;
+                    gap: 16px;
+                    align-items: center;
+                    background-color: white;
+                    border: 2px solid $base-font-color;
+                    border-radius: 10px;
+                    @include mobile {
+                        border-width: 1px;
+                    }
+                    &:hover {
+                        background-color: $base-card-shadow;
+                        cursor: pointer;
+                    }
+
+                    // title
+                    .title {
+                        width: 100%;
+                        font-size: 1.6rem;
+                        text-align: center;
+                        position: relative;
+                        margin-bottom: 8px;
+                        &::after {
+                            position: absolute;
+                            content: "";
+                            left: 50%;
+                            top: calc(100% + 8px);
+                            width: calc(100% + 32px);
+                            height: 1px;
+                            border: 1px solid $base-font-color;
+                            transform: translate(-50%, -50%);
+                        }
+                    }
+
+                    // thumbnail
+                    .thumbnail-view {
+                        width: 120px;
+                        height: 120px;
+                        @include mobile {
+                            width: 80px;
+                            height: 80px;
+                        }
+                    }
+
+                    // duration
+                    .duration {
+                        display: flex;
+                        flex-direction: column;
+                        &__duration-start, &__duration-end {
+                            display: flex;
+                            .label {
+                                margin-right: 8px;
+                            }
+                            .year, .month, .week {
+                                color: $blue-level3;
+                            }
+                        }
+                        @include mobile {
+                            gap: 16px;
+                            &__duration-start {
+                                position: relative;
+                                &::after {
+                                    position: absolute;
+                                    content: "";
+                                    width: 1px;
+                                    height: 10px;
+                                    background-color: $base-font-color;
+                                    top: calc(100% + 3px);
+                                    left: 50%;
+                                    transform: translateX(-50%);
+                                }
+                            }
+                            .label {
+                                display: none;
+                            }
+                        }
+                    }
+
+                    // progress
+                    .progress-gauge-wrapper {
+                        width: 100%;
+                        max-width: 200px;
+                    }
+                }
+            }
+        }
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////
+// final goal detail animation
+//////////////////////////////////////////////////////////////////////
+        &.enter {
+            opacity: 0;
+            transform: translateX(50px);
+        }
+        &.enter-active {
+            opacity: 1;
+            transition: all .3s .3s ease-in-out;
+            transform: translateX(0);
+        }
+        &.exit {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        &.exit-active {
+            opacity: 0;
+            transition: all .3s ease-in-out;
+            transform: translateX(50px);
+        }
+        .middle-goal-wrapper__middle-goals-list--middle-goal {
+            &.enter {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            &.enter-active {
+                opacity: 1;
+                transition: all .3s .3s ease-in-out;
+                transform: translateX(0);
+            }
+            &.exit {
+                opacity: 1;
+                transform: translateX(0);
+            }
+            &.exit-active {
+                opacity: 0;
+                transition: all .3s ease-in-out;
+                transform: translateX(-50px);
+            }
+        }
+        .middle-goal-wrapper__middle-goals-list:has(.enter), .middle-goal-wrapper__middle-goals-list:has(.exit) {
+            position: absolute;
+            width: 100%;
+        }
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////
+// middle goal detail
+//////////////////////////////////////////////////////////////////////
+        .middle-goal-detail {
+            font-size: 1.4rem;
+            display: flex;
+            flex-direction: column;
+            margin-top: 56px;
+            gap: 64px;
+            position: relative;
+            &__outline {
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                margin-top: 16px;
+                position: relative;
+                .thumbnail-view {
+                    width: 120px;
+                    height: 120px;
+                }
+                &--info {
+                    display: grid;
+                    grid-template-columns: 1fr 5fr;
+                    grid-template-rows: 1fr 1fr 1fr;
+                    column-gap: 16px;
+                    .label {
+                        font-size: 1.8rem;
+                        font-family: 'Alkatra', cursive;
+                    }
+                    .value {
+                        font-size: 1.4rem;
+                    }
+                    // title
+                    .value.title {
+
+                    }
+                    // duration
+                    .value.duration {
+                        display: flex;
+                        gap: 12px;
+                        .duration-start, .duration-end {
+                            display: flex;
+                            .year, .month, .week {
+                                color: $blue-level3;
+                            }
+                        }
+                    }
+                    // progress
+                    .value.progress {
+
+                    }
+                }
+            }
+            @include mobile {
+                &__outline {
+                    display: flex;
+                    flex-direction: column;
+                    .thumbnail-view {
+                        width: 100px;
+                        height: 100px;
+                    }
+                    &--info {
+                        display: block;
+                        .label {
+                            display: none;
+                        }
+                        .value {
+                            text-align: center;
+                            margin-top: 8px;
+                            &.title {
+                                font-size: 2rem;
+                                font-weight: bold;
+                            }
+                            &.duration {
+                                justify-content: center;
+                            }
+                        }
+                    }
+                }
+            }
+
+
+
+            // small goal
+            &__small-goal-wrapper {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 32px;
+                &--anounce {
+                    margin-top: 32px;
+                    font-size: 1.8rem;
+                    font-weight: bold;
+                    position: relative;
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        left: 50%;
+                        top: 100%;
+                        transform: translateX(-50%);
+                        background-color: $base-font-color;
+                        height: 2px;
+                        width: 140%;
+                    }
+                }
+                &--small-goals-list {
+                    max-width: 600px;
+                    width: 70%;
+                    @include mobile {
+                        width: 90%;
+                    }
+                    .small-goal-detail-wrapper {
+                        padding: 16px 0;
+                        position: relative;
+                        width: 100%;
+                        &::after {
+                            position: absolute;
+                            content: "";
+                            top: 100%;
+                            left: 50%;
+                            width: 120%;
+                            height: 1px;
+                            background-color: $base-font-color;
+                            transform: translateX(-50%);
+                        }
+                        // title
+                        &__title {
+                            display: flex;
+                            gap: 8px;
+                            line-height: 100%;
+                            p:first-child {
+                                font-size: 1.6rem;
+                                @include mobile {
+                                    font-size: 1.9rem;
+                                    font-weight: bold;
+                                }
+                            }
+                        }
+                        &__content {
+                            margin-top: 16px;
+                            margin-left: 32px;
+                            display: grid;
+                            grid-template-columns: 1fr 5fr;
+                            row-gap: 4px;
+                            column-gap: 8px;
+                            .label {
+                                font-size: 1.6rem;
+                                font-family: 'Alkatra', cursive;
+                            }
+                            // duration
+                            .value.duration {
+                                display: flex;
+                            }
+                            // amount
+                            .value.amount {
+                                display: flex;
+                            }
+                            // progress
+                            .value.progress {
+                                display: flex;
+                                flex-direction: column;
+                                .delay-message {
+                                    display: flex;
+                                    font-size: 1.2rem;
+                                    margin-top: 4px;
+                                    p:nth-child(2) {
+                                        color: $error-message-color;
+                                    }
+                                }
+                            }
+                            @include mobile {
+                                margin-top: 8px;
+                                margin-left: 0;
+                                column-gap: 0;
+                                .label {
+                                    background-color: $base-font-color;
+                                    color: white;
+                                    width: fit-content;
+                                    padding: 4px;
+                                    border-radius: 10px;
+                                    font-size: 1.8rem;
+                                }
+                                .value {
+                                    margin-left: 32px;
+                                    font-size: 2rem;
+                                    position: relative;
+                                    &.progress {
+                                        .progress-gauge-wrapper {
+                                            position: absolute;
+                                            left: 50%;
+                                            transform: translateX(-50%);
+                                            width: 100%;
+                                        }
+                                        .delay-message {
+                                            display: none;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .small-goal-detail-wrapper:last-child::after {
+                        display: none;
+                    }
+                }
+            }
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////
+// middle goal detail animation
+//////////////////////////////////////////////////////////////////////
+            &.enter {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            &.enter-active {
+                opacity: 1;
+                transition: all .3s .3s ease-in-out;
+                transform: translateX(0);
+            }
+            &.exit {
+                opacity: 1;
+                transform: translateX(0);
+            }
+            &.exit-active {
+                opacity: 0;
+                transition: all .3s ease-in-out;
+                transform: translateX(50px);
+            }
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+        }
+    }
+}

@@ -1,0 +1,251 @@
+@charset "utf-8";
+@import "../common/variables.scss";
+
+.do-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+
+
+
+
+    // 今週は第何週かと週間進捗の描画ここから
+    &__toweek {
+        margin-top: 24px;
+        background-color: $blue-level4;
+        color: white;
+        font-size: 2rem;
+        font-weight: bold;
+        padding: 15px 100px;
+        border-radius: 20px;
+    }
+    &__progress-gauge {
+        margin-top: 16px;
+
+        &--description {
+            font-size: 1.4rem;
+            text-align: center;
+            margin-bottom: 6px;
+            color: white;
+        }
+    }
+    // 今週は第何週かと週間進捗の描画ここまで
+
+
+
+
+
+
+    // ゴール一覧の描画ここから
+    &__final-goals-list {
+        margin-top: 69px;
+        display: flex;
+        flex-direction: column;
+        gap: 34px;
+        width: 100%;
+
+        &__final-goal {
+
+            &--title {
+                color: white;
+                font-size: 2.4rem;
+                position: relative;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    background-color: white;
+                    text-align: center;
+                    top: 100%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 100%;
+                    height: 1px;
+                }
+            }
+            &__middle-goals-list {
+                margin-top: 16px;
+                display: flex;
+                flex-direction: column;
+                // gap: 36px;
+
+                &__middle-goal {
+                    display: flex;
+                    flex-direction: column;
+                    background-color: $base-card-color;
+                    gap: 7px;
+                    padding: 19px 49px;
+                    color: $shallow-font-color;
+                    border-bottom: 1px solid $base-background-color;
+                    @include mobile {
+                        padding: 16px;
+                    }
+
+                    &--title {
+                        font-size: 1.6rem;
+                        font-weight: bold;
+                    }
+                    &__thumbnail-and-small-goals {
+                        display: flex;
+                        align-items: center;
+                        gap: 80px;
+                        @include mobile {
+                            gap: 48px;
+                        }
+
+                        &--thumbnail {
+                            width: 80px;
+                        }
+                        &__small-goals-list {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 8px;
+                            font-size: 1.6rem;
+                            div {
+                                display: grid;
+                                grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+                                grid-template-rows: 1fr 1fr;
+                                column-gap: 8px;
+                                row-gap: 4px;
+                                width: 100%;
+                                position: relative;
+                                &::before {
+                                    position: absolute;
+                                    content: "";
+                                    top: 50%;
+                                    left: -20px;
+                                    transform: translateY(-50%);
+                                    width: 5px;
+                                    height: 5px;
+                                    border-radius: 50%;
+                                    background-color: $shallow-font-color;
+                                }
+                            }
+
+
+                            &--task-name {
+                                position: relative;
+                                grid-column-start: 1;
+                                grid-column-end: 6;
+                                grid-row-start: 1;
+                                grid-row-end: 2;
+                            }
+                            &--progress {
+                                grid-column-start: 2;
+                                grid-column-end: 4;
+                                grid-row-start: 2;
+                                grid-row-end: 3;
+                            }
+                            &--amount-of-task {
+                                grid-column-start: 4;
+                                grid-column-end: 6;
+                                grid-row-start: 2;
+                                grid-row-end: 3;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    // ゴール一覧の描画ここまで
+
+
+
+
+
+
+    // 各日の成果入力フォームここから
+    &__day-progress {
+        margin-top: 64px;
+        margin-bottom: 64px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &__progress-gauge {
+            margin-bottom: 48px;
+            &--description {
+                font-size: 1.4rem;
+                text-align: center;
+                margin-bottom: 6px;
+                color: white;
+            }
+        }
+        &__day-info {
+            display: flex;
+            gap: 48px;
+            align-items: center;
+
+            &--move-day-button {
+                background-color: $blue-level2;
+                border-radius: 5px;
+                padding: 10px 24px;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                user-select: none;
+                z-index: 2;
+                transition: all 0.3s;
+
+                &:hover {
+                    cursor: pointer;
+                    background-color: #75cbc9;
+                    transform: scale(1.05);
+                }
+                p {
+                    font-size: 1.2rem;
+                    font-weight: bold;
+                }
+                img {
+                    z-index: 1;
+                    width: 8px;
+                }
+            }
+            // 勉強成果入力フォームここから
+            &__progress-input-form {
+                background-color: $base-card-color;
+                padding: 16px 24px;
+                font-size: 1.6rem;
+
+                &--on-day {
+                    color: rgb(50, 50, 50);
+                    font-size: 1.6rem;
+                    font-weight: bold;
+                    text-align: center;
+                    margin-bottom: 20px;
+                    position: relative;
+
+                    &::after {
+                        position: absolute;
+                        content: "";
+                        width: 100%;
+                        height: 1px;
+                        background-color: rgb(137, 137, 137);
+                        left: 50%;
+                        top: calc(100% + 5px);
+                        transform: translateX(-50%);
+                    }
+                }
+            }
+            @include mobile {
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: space-between;
+                div:nth-child(2) {
+                    order: 1;
+                    width: 100%;
+                }
+                div:nth-child(1) {
+                    order: 2;
+                }
+                div:nth-child(3) {
+                    order: 3;
+                }
+            }
+            // 勉強成果入力フォームここから
+        }
+    }
+    // 各日の成果入力フォームここまで
+}

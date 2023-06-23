@@ -1,0 +1,233 @@
+@charset "utf-8";
+@import "../../common/variables.scss";
+
+
+
+.duration-with-figure-input-box {
+    &__duration-input-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        margin-top: 32px;
+        margin-bottom: 32px;
+
+        &--duration-input {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            align-items: center;
+            > p {
+                font-size: 1.5rem;
+            }
+            @include mobile {
+                flex-direction: column;
+                gap: 24px;
+                .duration-input-box:first-child {
+                    position: relative;
+                    &::after {
+                        position: absolute;
+                        content: "";
+                        width: 1px;
+                        height: 8px;
+                        top: calc(100% + 8px);
+                        left: 50%;
+                        transform: translateX(-50%);
+                        background-color: $base-font-color;
+                    }
+                }
+                > p {
+                    display: none;
+                }
+            }
+        }
+        &--target-and-check-btn {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            select {
+                width: 100%;
+                height: 24px;
+            }
+            div {
+                width: 100%;
+                display: flex;
+                justify-content: flex-end;
+                gap: 16px;
+                .btn-wrapper {
+                    margin: 0;
+                    &.sub .button svg {
+                        left: 12%;
+                        .check-line {
+                            stroke-dashoffset: 20.384777069091797px;
+                            stroke-dasharray: 20.384777069091797px;
+                            -webkit-transition: stroke-dashoffset .2s cubic-bezier(0.47, 0, 0.745, 0.715) .2s;
+                            transition: stroke-dashoffset .2s cubic-bezier(0.47, 0, 0.745, 0.715) .2s;
+                            @include mobile {
+                                stroke-dashoffset: 0;
+                            }
+                        }
+                    }
+                    &:hover {
+                        .button svg .check-line {
+                            stroke-dashoffset: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &__figure-box {
+        display: flex;
+        flex-direction: row;
+        gap: 25px;
+        @include mobile {
+            gap: 12px;
+        }
+
+        // タイトル一覧
+        &__middle-goal-title-list {
+            display: flex;
+            flex-direction: column;
+            width: 139px;
+            position: relative;
+            @include mobile {
+                width: 80px;
+            }
+
+            &--number-of-week {
+                font-size: 1.4rem;
+                font-weight: bold;
+                height: calc(9px + 57.98px + 16px);
+                line-height: calc(9px + 57.98px + 16px);
+            }
+            &--item {
+                font-size: 1.4rem;
+                margin-bottom: 22px;
+
+                p {
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                }
+            }
+        }
+
+        // 図の中身
+        &__figure {
+            overflow-x: scroll;
+            overflow-y: hidden;
+            user-select: none;
+            position: relative;
+            width: 100%;
+            padding: 9px 27px;
+            background-color: white;
+
+            // 列
+            &--columns {
+                display: flex;
+                flex-direction: row;
+                gap: 27px;
+
+                li {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    width: 25px;
+                }
+                &--year-num {
+                    white-space: nowrap;
+                    &.hidden {
+                        visibility: hidden;
+                    }
+                }
+                &--month-num {
+                    text-align: center;
+                    font-size: 1.5rem;
+                    display: block;
+                    white-space: nowrap;
+                    width: 25px;
+                    height: 18px;
+
+                    + .duration-with-figure-input-box__figure-box__figure--columns--week-num {
+                        margin-top: 2px !important;
+                    }
+                    &.hidden {
+                        visibility: hidden;
+                    }
+                }
+                &--week-num {
+                    font-size: 1.2rem;
+                    font-weight: bold;
+                    display: block;
+                    border-radius: 50%;
+                    border: 1px solid $base-font-color;
+                    width: 25px;
+                    height: 25px;
+                    text-align: center;
+                    line-height: 25px;
+                    margin-top: 20px;
+                    &.hidden {
+                        visibility: hidden;
+                    }
+                }
+            }
+
+            // 行
+            &--rows {
+                display: flex;
+                flex-direction: column;
+                gap: 22px;
+                margin-top: 16px;
+
+                &--checkbox-list {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 27px;
+
+                    &--checkbox {
+                        position: relative;
+
+                        input {
+                            z-index: 2;
+                            height: 14px;
+                            width: 25px;
+                            position: relative;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                        }
+                        // 横線
+                        &::after {
+                            content: "";
+                            z-index: 1;
+                            position: absolute;
+                            width: calc(100% + 27px);
+                            height: 2px;
+                            left: 50%;
+                            top: 50%;
+                            transform: translate(-50%, -50%);
+                            background-color: $blue-level3;
+                        }
+                        // 縦破線
+                        &::before {
+                            content: "";
+                            z-index: 1;
+                            position: absolute;
+                            width: 0;
+                            height: calc(100% + 22px);
+                            border-left: dotted 1px $blue-level4;
+                            left: 50%;
+                            top: 50%;
+                            transform: translate(-50%, -50%);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,88 @@
+@charset 'utf-8';
+@import '../common/variables.scss';
+
+
+////////////////////////////////////////////////////////////
+// base style
+////////////////////////////////////////////////////////////
+.load-data-popup-wrapper {
+    z-index: 101;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    background-color: $base-card-color;
+    padding: 32px 32px 16px 32px;
+    border: 2px solid $base-font-color;
+    border-radius: 16px;
+    transform-origin: center;
+    &__message-box {
+        font-size: 1.6rem;
+        font-weight: bold;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+        &--attention {
+            color: $error-message-color;
+        }
+        &--ask {
+            
+        }
+    }
+    &__btn-box {
+        display: flex;
+        align-items: center;
+        gap: 48px;
+        @include mobile {
+            gap: 24px;
+            div.btn-wrapper, div.btn-wrapper {
+                width: 100px;
+            }
+        }
+    }
+}
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+
+
+
+
+
+
+////////////////////////////////////////////////////////////
+// animation
+////////////////////////////////////////////////////////////
+.enter.load-data-popup-wrapper {
+    opacity: 0;
+    transform: scale(0.95) translate(-50%, -50%);
+}
+.enter-active.load-data-popup-wrapper {
+    transition: all .2s ease-in-out;
+    opacity: 1;
+    transform: scale(1) translate(-50%, -50%);
+}
+.enter-done.load-data-popup-wrapper {
+    opacity: 1;
+    transform: scale(1) translate(-50%, -50%);
+}
+.exit.load-data-popup-wrapper {
+    opacity: 1;
+    transform: scale(1) translate(-50%, -50%);
+}
+.exit-active.load-data-popup-wrapper {
+    transition: all .2s ease-in-out;
+    opacity: 0;
+    transform: scale(0.95) translate(-50%, -50%);
+}
+.exit-done.load-data-popup-wrapper {
+    opacity: 0;
+    transform: scale(0.95) translate(-50%, -50%);
+}
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////

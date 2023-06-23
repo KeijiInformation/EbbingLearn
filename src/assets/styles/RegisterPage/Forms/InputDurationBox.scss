@@ -1,0 +1,57 @@
+@charset 'utf-8';
+@import '../../common/variables.scss';
+
+
+
+.duration-input-box {
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+
+    &__text {
+        &-kigen {
+            font-size: 1.5rem;
+            margin-right: 38px;
+            @include mobile {
+                margin-right: 20px;
+            }
+        }
+        &-nen {
+            margin-left: 5px;
+            margin-right: 10px;
+        }
+        &-gatsu {
+            margin-left: 5px;
+            margin-right: 10px;
+        }
+        &-dai {
+            margin-right: 5px;
+        }
+        &-shu {
+            margin-left: 5px;
+        }
+    }
+
+    &__input-year, &__input-month, &__input-week {
+        width: 46px;
+        height: 26px;
+        text-align: center;
+        @include mobile {
+            width: 30px;
+            height: 20px;
+        }
+    }
+
+    &__input-year {
+        width: 60px;
+        @include mobile {
+            width: 40px;
+        }
+    }
+
+    &__error-message {
+        position: absolute;
+        transform: translateY(25px);
+    }
+}

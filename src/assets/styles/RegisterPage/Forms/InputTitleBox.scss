@@ -1,0 +1,13 @@
+@charset 'utf-8';
+@import '../../common/variables.scss';
+
+
+.title-input-box {
+    &__input {
+        width: 604px;
+        height: 26px;
+    }
+    &__error-message {
+        margin-top: 6px;
+    }
+}

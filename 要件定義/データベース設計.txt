@@ -1,0 +1,115 @@
+Users: ユーザーごとのドキュメントを保存する
+    -自動生成ID
+        -uid: ユーザーの固有IDが入る
+
+
+
+
+
+
+Goals: ユーザーが設定した目標を保存する
+    -uid_final1
+        -id: "final1"
+        -title: "タイトル"
+        -description: "説明"
+        -durationStart: [2022, 7, 1]
+        -durationEnd: [2022, 8, 4]
+        -thumbnail: filePathが入る。ない場合はnoImageのPathを格納
+        -uid: "uid"
+        -timestamp: [2022, 7, 21]
+        -delete: {
+            flag: false
+            date: null
+        }
+        -studyPace: {
+            dayoff: ["Sun", "Mon"],
+            paceOfReLearning: 1.5,
+            reLearnigPerWeekFlag: true,
+        }
+        -middleGoals: オブジェクトが入る。詳しくは↓
+            {
+                middle1: オブジェクトが入る。詳しくは↓
+                    {
+                        finalGoalID: "final1"
+                        id: "middle1"
+                        title: "タイトル"
+                        duration: [[2022, 7, 1], [2022, 7, 2], [2022, 7, 3], ...]
+                        thumbnail: filePathが入る。ない場合はnoImageのPathを格納
+                        -delete: {
+                            flag: false
+                            date: null
+                        }
+                        smallGoals: オブジェクトが入る。詳しくは↓
+                            {
+                                small1: オブジェクトが入る。詳しくは↓
+                                    }
+                                        id: "small1"
+                                        middleGoalID: "middle1"
+                                        title: "タイトル"
+                                        genre: "動画"
+                                        amount: 23
+                                        unit: "本"
+                                        reLearnignFlag: true
+                                        duration: [[2022, 7, 1], [2022, 7, 3], ...]
+                                        progress: 0
+                                        done: false
+                                        -delete: {
+                                            flag: false
+                                            date: null
+                                        }
+                                    }
+                                small2...
+                            }
+
+                    }
+                middleGoal2...
+            }
+
+
+
+
+
+
+ProgressData: 進捗状況を保持
+    documentID = uid
+    {
+        2022-1-1:
+        {
+            2022/1/1:
+            {
+                final1_middle1_small1:
+                {
+                    progress: 10,
+                    range: [0, 10],
+                    amount: 20,
+                    weight: 5
+                    id: final1_middle1_small1,
+                }
+            }
+        }
+    }
+
+
+
+
+
+
+DateAndWeekData: 日付と週情報を保持
+    documentID = 2022
+    {
+        id: 2022
+        2022/1/1: 2022-1-1,
+        2022/1/2: 2022-1-1,
+        2022/1/3: 2022-1-1,
+        .
+        .
+        .
+        2022/12/31: 2022-12-4,
+        2023/1/1: 2022-12-4,
+    }
+
+    documentID = dateDataAdmin
+    {
+        update: 2022,
+        remainder: ["2022/1/1", "2022-1-1"] ※第1引数は前年で処理を行った最終日(日曜になるはず)。第2引数は所属する週
+    }

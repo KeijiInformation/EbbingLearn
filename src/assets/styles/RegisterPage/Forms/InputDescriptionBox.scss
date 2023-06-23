@@ -1,0 +1,14 @@
+@charset 'utf-8';
+@import '../../common/variables.scss';
+
+
+
+.description-input-box {
+    &__input {
+        width: 604px;
+        height: 56px;
+    }
+    &__error-message {
+        margin-top: 6px;
+    }
+}

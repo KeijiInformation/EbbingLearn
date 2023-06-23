@@ -1,0 +1,219 @@
+@charset 'utf-8';
+@import '../common/variables.scss';
+
+
+.register-page {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+
+
+
+
+
+.section-navigation {
+    display: flex;
+    gap: 13px;
+    margin-top: 40px;
+    color: $blue-level2;
+
+    &__li {
+        display: flex;
+        gap: 13px;
+        align-items: center;
+
+        &--title {
+            position: relative;
+            font-size: 1.1rem;
+
+            &.on-section {
+                font-size: 1.3rem;
+                font-weight: bold;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    height: 1px;
+                    width: 100%;
+                    background-color: $blue-level2;
+                }
+
+                @include mobile() {
+                    &::after {
+                        height: 0;
+                    }
+                }
+            }
+        }
+
+        &--navigate-line {
+            width: 89px;
+
+            @include mobile() {
+                width: 30px;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+.section-out-line {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    gap: 26px;
+    margin-top: 77px;
+    color: $blue-level2;
+
+    &__title {
+        font-size: 2.4rem;
+        font-weight: bold;
+        position: relative;
+
+        span {
+            font-size: 1.6rem;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: -9px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 127px;
+            height: 3px;
+            border-radius: 4px;
+            background-color: $blue-level2;
+        }
+    }
+
+    &__description {
+        max-width: 553px;
+        width: 90%;
+        font-size: 1.2rem;
+        line-height: 1.5;
+    }
+
+}
+
+
+
+
+
+
+.input-form-box {
+    background-color: #E4E4E4;
+    max-width: 1000px;
+    width: 100%;
+    padding: 64px;
+    margin-top: 107px;
+    margin-bottom: 123px;
+
+    @include mobile() {
+        width: 100%;
+        padding: 24px;
+    }
+
+    .btn-wrapper {
+        @include btn-design(164px, 30px, 1.2rem);
+    }
+}
+
+[class$="input-box__title"] {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: $deep-font-color;
+    margin-bottom: 6px;
+}
+[class$="input-box__navigation-message"] {
+    font-size: 1.3rem;
+    position: relative;
+    left: 10px;
+}
+[class$="input-box__input"] {
+    max-width: 100%;
+    margin-top: 6px;
+    box-shadow: 0 4px 4px $black-shadow;
+    border: 1px solid #878787;
+}
+[class$="input-box__error-message"] {
+    font-weight: normal;
+    color: $error-message-color;
+    font-size: 1.3rem;
+}
+[class$="move-section-btn-list"] {
+    margin-top: 128px;
+    display: flex;
+    gap: 16px;
+    justify-content: space-around;
+    position: relative;
+    &::after {
+        content: "";
+        width: 110%;
+        height: 2px;
+        top: -48px;
+        left: 50%;
+        border-radius: 10px;
+        background-color: $base-card-shadow;
+        position: absolute;
+        transform: translate(-50%, -50%);
+    }
+    .btn-wrapper, .next-section-btn-wrapper {
+        position: relative;
+        width: 100px;
+        height: 32px;
+        background-color: $blue-level5;
+        box-shadow: 0 4px 4px $black-shadow;
+        border-radius: 15px;
+        transition: all .2s ease-in-out;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        input.button {
+            display: none;
+        }
+        p {
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        svg {
+            position: absolute;
+            top: 50%;
+            left: 76%;
+            transform: translateY(-50%);
+            width: 15px;
+            height: 15px;
+            polyline {
+                stroke: white;
+            }
+        }
+        &:first-child svg {
+            left: 7%;
+        }
+        &:hover {
+            background-color: $blue-level4;
+            cursor: pointer;
+            .button {
+                background-color: $blue-level4;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+.scroll-to-register-page-top {
+    display: none;
+}

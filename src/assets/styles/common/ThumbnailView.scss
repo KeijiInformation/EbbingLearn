@@ -1,0 +1,20 @@
+@charset 'utf-8';
+@import '../common/variables.scss';
+
+
+
+.thumbnail-view {
+    width: 158px;
+    height: 158px;
+    background-color: white;
+    border: 1px solid $blue-level5;
+    border-radius: 5px;
+    padding: 6px;
+    position: relative;
+    &__image {
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}

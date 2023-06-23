@@ -1,0 +1,124 @@
+@charset 'utf-8';
+@import '../common/variables.scss';
+
+.confirm-page__duration-figure {
+    background-color: white;
+    position: relative;
+    max-width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: left;
+    padding: 20px;
+
+    &__columns-list {
+        display: flex;
+        gap: 24px;
+        margin-left: 20px;
+        overflow-x: scroll;
+        flex-basis: 80%;
+        @include mobile {
+            gap: 12px;
+            margin-left: 12px;
+        }
+
+        &__column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 1.4rem;
+
+            &.first-week &--month, &:first-child &--month, &.first-week &--year, &:first-child &--year {
+                visibility: visible;
+            }
+            &--year {
+                visibility: hidden;
+                white-space: nowrap;
+                height: 19px;
+            }
+            &--month {
+                white-space: nowrap;
+                visibility: hidden;
+                margin-bottom: 6px;
+                height: 20px;
+                width: 30px;
+                text-align: center;
+            }
+            &--week {
+                width: 20px;
+                height: 20px;
+                text-align: center;
+                border: 1px solid $base-font-color;
+                border-radius: 50%;
+                @include mobile {
+                    width: 16px;
+                    height: 16px;
+                    margin-bottom: 4px;
+                }
+            }
+            &__active-goals-list {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: relative;
+                gap: 12px;
+
+                &--goal {
+                    width: 10px;
+                    height: 10px;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                    border-radius: 50%;
+                    position: relative;
+                    &.active {
+                        background-color: $base-font-color;
+                    }
+                    &::after {
+                        position: absolute;
+                        content: "";
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        background-color: $base-font-color;
+                        width: 100px;
+                        height: 1px;
+                    }
+                }
+                &::after {
+                    position: absolute;
+                    content: "";
+                    top: 50%;
+                    left: 50%;
+                    margin-top: 5px;
+                    transform: translate(-50%, -50%);
+                    border: 1px dashed $base-font-color;
+                    height: calc(100% - 5px);
+                }
+            }
+        }
+    }
+    &__rows-list {
+        display: flex;
+        flex-direction: column;
+        flex-basis: 20%;
+        margin-top: 65px;
+        margin-bottom: 30px;
+        gap: 12px;
+
+        &__row {
+            font-size: 2rem;
+            height: 30px;
+            line-height: 30px;
+            max-width: 100%;
+
+            &--title {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                @include mobile {
+                    font-size: 1.4rem;
+                    max-width: 80%;
+                }
+            }
+        }
+    }
+}

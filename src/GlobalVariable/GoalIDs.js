@@ -1,0 +1,62 @@
+class GoalIDs {
+    ////////////////////////////////////////////////////////////////
+    // constructor
+    ////////////////////////////////////////////////////////////////
+    constructor(goalIDs, finalGoalID, middleGoalID, smallGoalID) {
+        if (goalIDs === undefined) {
+            this.finalGoalID  = finalGoalID;
+            this.middleGoalID = middleGoalID;
+            this.smallGoalID  = smallGoalID;
+        } else {
+            const goalIDsArr = goalIDs.split("_");
+            this.finalGoalID  = goalIDsArr[0];
+            this.middleGoalID = goalIDsArr[1];
+            this.smallGoalID  = goalIDsArr[2];
+        }
+    }
+    ////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+    ////////////////////////////////////////////////////////////////
+    // get
+    ////////////////////////////////////////////////////////////////
+    getStr() {
+        return `${this.finalGoalID}_${this.middleGoalID}_${this.smallGoalID}`;
+    }
+    ////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+    ////////////////////////////////////////////////////////////////
+    // compare
+    ////////////////////////////////////////////////////////////////
+    include(goalIDs) {
+        if        (this.finalGoalID !== undefined && this.middleGoalID !== undefined && this.smallGoalID !== undefined) {
+            return goalIDs.getStr() === this.getStr()
+        } else if (this.finalGoalID !== undefined && this.middleGoalID !== undefined && this.smallGoalID === undefined) {
+            return (goalIDs.finalGoalID === this.finalGoalID && goalIDs.middleGoalID === this.middleGoalID);
+        } else if (this.finalGoalID !== undefined && this.middleGoalID === undefined && this.smallGoalID === undefined) {
+            return (goalIDs.finalGoalID === this.finalGoalID);
+        } else {
+            return true;
+        }
+    }
+    ////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////
+}
+
+
+
+export default GoalIDs;

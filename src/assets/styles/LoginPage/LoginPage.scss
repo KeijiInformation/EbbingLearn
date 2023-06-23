@@ -1,0 +1,53 @@
+@charset 'utf-8';
+@import '../common/variables';
+
+
+
+.login-page-inner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    gap: 27px;
+    width: 100%;
+    max-width: 400px;
+
+    &__logo-image {
+        width: 200px;
+        height: 200px;
+    }
+
+    &__login-box {
+        height: 203px;
+        width: 90%;
+        background: $blue-level1;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+
+        &--instruction {
+            font-weight: bold;
+            font-size: 1.9rem;
+        }
+
+        &--login-btn {
+            margin-top: 40px;
+            margin-bottom: 9px;
+            @include mobile {
+                width: 100px;
+                height: 30px;
+            }
+        }
+
+        &--note {
+            font-weight: bold;
+            font-size: 1.3rem;
+            color: $deep-font-color;
+        }
+    }
+}

@@ -1,0 +1,110 @@
+@charset "utf-8";
+@import "../../../common/variables.scss";
+
+
+
+.pace-of-goal-view-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    &__middle-goal {
+        display: flex;
+        align-items: center;
+        gap: 48px;
+        color: $deep-font-color;
+        // font-weight: bold;
+
+        .thumbnail-view {
+            width: 80px;
+            height: 80px;
+            border: solid 2px $blue-level4;
+            &::after {
+                content: "";
+                top: 100%;
+                left: 50%;
+                transform: translateX(-50%);
+                position: absolute;
+                width: 2px;
+                height: 32px;
+                background-color: $blue-level4;
+            }
+        }
+        &--title {
+            font-size: 1.4rem;
+        }
+        &--duration {
+            font-size: 1.4rem;
+        }
+    }
+    &__small-goals-list {
+        display: flex;
+        flex-direction: column;
+        gap: 17px;
+        margin-left: 80px;
+        font-size: 1.5rem;
+
+        &__small-goal {
+            position: relative;
+            display: flex;
+            gap: 4px;
+            flex-wrap: wrap;
+            &--title {
+                width: 100%;
+                font-weight: bold;
+
+            }
+            @include mobile {
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                left: -40px;
+                top: -32px;
+                transform: translateX(-50%);
+                width: 2px;
+                height: calc(100% + 10px);
+                background-color: $blue-level4;
+                z-index: 1;
+            }
+            &::before {
+                content: "";
+                width: 15px;
+                height: 15px;
+                border-radius: 50%;
+                position: absolute;
+                left: -40px;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                background-color: white;
+                border: solid 2px $blue-level4;
+                z-index: 2;
+            }
+            &--title {
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+            &--pace-of-week {
+                text-align: right;
+                color: $blue-level3;
+                font-weight: bold;
+            }
+            &__pace-of-day {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 2fr;
+
+                &--task-per-day {
+                    text-align: right;
+                    color: $blue-level3;
+                    font-weight: bold;
+                }
+                &--unit-of-task {
+                }
+                &--text-finish {
+                }
+            }
+        }
+    }
+}

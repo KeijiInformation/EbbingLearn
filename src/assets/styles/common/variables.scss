@@ -1,0 +1,129 @@
+@charset 'utf-8';
+// 色設定ここから
+    $shallow-font-color: #787878;
+    $base-font-color: #4E4E4E;
+    $deep-font-color: #3E3E3E;
+    $border-line-color: rgb(156, 156, 156);
+    $base-background-color: rgb(31, 31, 31);
+    $base-card-color: #E7E7E7;
+    $base-card-shadow: #c9c9c9;
+    $error-message-color: #ff4a4a;
+    $blue-level5: #011C4B;
+    $blue-level4: #004483;
+    $blue-level3: #0F78BE;
+    $blue-level2: #88E6E3;
+    $blue-level1: #A8FFE5;
+    $black-shadow: rgba($color: #000000, $alpha: 0.06);
+// 色設定ここまで
+
+// その他変数設定ここから
+    $golden-ratio: 1.618033;
+// その他変数設定ここまで
+
+
+
+
+
+// 関数設定ここから
+    @mixin pc() {
+        @media screen and (min-width: 1280px) {
+            @content;
+        }
+    }
+
+    @mixin tablet() {
+        @media screen and (max-width: 1279px) {
+            @content;
+        }
+    }
+
+    @mixin mobile() {
+        @media screen and (max-width: 767px) {
+            @content;
+        }
+    }
+
+    @mixin btn-design($btn-width, $btn-height, $btn-font-size) {
+        position: relative;
+        width: $btn-width;
+        height: $btn-height;
+        background-color: $blue-level5;
+        box-shadow: 0 4px 4px $black-shadow;
+        border-radius: 15px;
+        transition: all .2s ease-in-out;
+        .button {
+            width: 100%;
+            height: 100%;
+            background-color: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            svg {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translateY(-50%);
+                width: 15px;
+                height: 15px;
+            }
+            p, svg polyline, svg path {
+                color: white;
+                stroke: white;
+            }
+            p {
+                font-weight: bold;
+            }
+        }
+        &:hover {
+            .button {
+                cursor: pointer;
+            }
+            background-color: $blue-level4;
+        }
+
+        &.sub {
+            background-color: inherit;
+            border: 2px solid $blue-level4;
+            .button {
+                p, svg polyline, svg path {
+                    color: $blue-level4;
+                    stroke: $blue-level4;
+                    transition: all .2s ease-in-out;
+                }
+            }
+            &:hover {
+                background-color: $blue-level4;
+                .button {
+                    p, svg polyline, svg path {
+                        color: white;
+                        stroke: white;
+                    }
+                }
+            }
+        }
+    }
+
+    @mixin attach-shadow($object-color) {
+        position: relative;
+        &::after {
+            /* 疑似要素で同じ大きさのboxを作り、position: absoluteで背面に表示 */
+            content: '';
+            display: block;
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* ①疑似要素のボックスを影色で塗りつぶし */
+            background-color: $object-color;
+            /* ②ブラーフィルターでぼかす */
+            filter: blur(15px);
+            /* ③位置やサイズを調整 */
+            transform: translateY(10px) scale(1.05);
+            /* ④乗算で重ねる */
+            mix-blend-mode: multiply;
+        }
+    }
+// 関数設定ここまで

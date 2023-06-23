@@ -1,0 +1,32 @@
+@charset "utf-8";
+@import "../../../common/variables.scss";
+
+
+
+.study-pace-inner__checkbox-list {
+
+    &__dayoff-config-box {
+
+        &__select-day-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            margin-top: 9px;
+            margin-left: 73px;
+
+            &--item {
+                display: flex;
+                gap: 4px;
+                align-items: center;
+
+                input {
+                    width: 18px;
+                    height: 18px;
+                }
+                p {
+                    font-size: 1.3rem;
+                }
+            }
+        }
+    }
+}

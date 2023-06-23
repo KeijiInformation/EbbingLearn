@@ -1,0 +1,104 @@
+@charset "utf-8";
+@import "../../../common/variables.scss";
+
+
+
+.small-goal-inner {
+
+    &__middle-goals-list {
+        display: flex;
+        flex-direction: column;
+        gap: 48px;
+
+        &__item {
+            background-color: white;
+            padding: 24px;
+            transition: clip-path 0.7s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+            @include mobile {
+                padding: 16px;
+            }
+
+            &.closed {
+                clip-path: inset(0 0 calc(100% - 109px) 0);
+                height: 109px;
+                overflow-y: hidden;
+
+                &:hover {
+                    background-color: rgb(194, 194, 194);
+                    cursor: pointer;
+                }
+            }
+            &.opened {
+                clip-path: inset(0 0 0 0);
+                height: auto;
+                overflow-y: auto;
+            }
+            // 中目標の基本情報ここから
+            &__middle-goal-info {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 46px;
+                position: relative;
+                width: 100%;
+
+                .thumbnail-view {
+                    width: 80px;
+                    height: 80px;
+                    @include mobile {
+                        width: 72px;
+                        height: 72px;
+                    }
+                }
+                &--text {
+                    display: flex;
+                    flex-direction: column;
+                    text-align: center;
+                    gap: 11px;
+                    font-size: 1.5rem;
+                    color: $deep-font-color;
+                    font-weight: bold;
+                    width: calc(100% - 120px);
+                }
+            }
+            // 中目標の基本情報ここまで
+
+
+
+
+
+
+            // 小目標の追加ここから
+            &--navigation-text {
+                color: $deep-font-color;
+                font-size: 1.6rem;
+                font-weight: bold;
+                margin-bottom: 23px;
+                position: relative;
+                &::after, &::before {
+                    position: absolute;
+                    content: "";
+                    top: 50%;
+                    width: 300%;
+                    height: 1px;
+                    background-color: $base-font-color;
+                }
+                &::after {
+                    transform: translate(10px, -50%);
+                }
+                &::before {
+                    transform: translate(calc(-100% - 10px), -50%);
+                }
+            }
+            // 小目標の追加ここまで
+        }
+    }
+
+    &__duration-form--move-section-btn-list {
+        margin-top: 90px;
+    }
+}

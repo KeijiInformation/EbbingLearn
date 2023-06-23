@@ -1,0 +1,45 @@
+@charset 'utf-8';
+@import '../../common/variables.scss';
+
+
+
+.thumbnail-input-box {
+    .btn-wrapper.sub {
+        margin-top: 16px;
+        margin-left: 10px;
+        width: 140px;
+        @include mobile {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .button svg {
+            left: 8%;
+        }
+    }
+
+    &__input {
+        display: none;
+    }
+
+    &__image-preview-box {
+        width: 120px;
+        height: 120px;
+        padding: 10px;
+        position: relative;
+        margin-left: 10px;
+        margin-top: 6px;
+        background-color: white;
+        border: 1px dotted black;
+        @include mobile {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        img {
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+}

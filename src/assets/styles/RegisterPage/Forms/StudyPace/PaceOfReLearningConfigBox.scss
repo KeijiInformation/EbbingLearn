@@ -1,0 +1,16 @@
+@charset "utf-8";
+@import "../../../common/variables.scss";
+
+
+
+.study-pace-inner__checkbox-list__pace-of-re-learning-config-box {
+
+    &__input-box {
+        display: flex;
+        gap: 48px;
+    }
+
+    &--input-select {
+        width: 149px;
+    }
+}

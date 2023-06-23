@@ -1,0 +1,75 @@
+@charset 'utf-8';
+@import '../../../common/variables.scss';
+
+
+
+.middle-goal-inner {
+    display: flex;
+    flex-direction: column;
+
+    &__title-and-thumbnail-form {
+        display: flex;
+        flex-direction: column;
+        gap: 55px;
+    }
+    .btn-wrapper.add-middle-goal-btn {
+        margin: 0 auto 0 auto;
+    }
+
+
+    &__middle-goal-items-list {
+        margin: 55px auto 98px auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        @include mobile {
+            grid-template-columns: 1fr;
+        }
+
+        &--item {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            padding: 15px;
+            width: 220px;
+            height: 110px;
+            background-color: white;
+            border: 1px solid black;
+
+            .thumbnail-view {
+                width: 80px;
+                height: 80px;
+                max-height: 100%;
+            }
+
+            p {
+                font-size: 1.2rem;
+            }
+
+            button {
+                position: absolute;
+                top: 3px;
+                left: calc(100% - 33px);
+                width: 30px;
+                height: 30px;
+                border: none;
+                background-color: inherit;
+                background-image: url("../../../../images/common/deleteBtn.png");
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: 30px 30px;
+                &:hover {
+                    cursor: pointer;
+                    background-size: 33px 33px;
+                }
+            }
+        }
+    }
+
+    .duration-with-figure-input-box {
+        &__navigation-message {
+            margin-bottom: 55px;
+        }
+    }
+}
